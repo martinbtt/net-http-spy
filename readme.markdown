@@ -11,7 +11,8 @@ sudo gem install martinbtt-net-http-spy
 
     require 'rubygems'
     require 'twitter'
-    require 'http-spy'
+    gem 'net-http-spy
+    require 'net-http-spy'
     
     Twitter::Search.new('httparty').each { |r| r }
     # Outputs...

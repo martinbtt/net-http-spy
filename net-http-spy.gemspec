@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = %q{2009-05-07}
   s.email = %q{martin@beyondthetype.com}
   s.extra_rdoc_files = ["readme.markdown"]
-  s.files =  %w(readme.markdown spy.rb) + Dir.glob("{spec,lib,examples}/**/*")
+  s.files =  %w(readme.markdown) + Dir.glob("{spec,lib,examples}/**/*")
   s.rdoc_options = ["--main", "readme.markdown"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{net-http-spy}

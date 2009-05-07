@@ -19,7 +19,7 @@ end
 spec = Gem::Specification.new do |s|
   
   # Change these as appropriate
-  s.name              = "nethttp-spy"
+  s.name              = "net-http-spy"
   s.version           = "0.1.0"
   s.summary           = "Ever wondered what HTTP requests the Ruby gem you are using to connect to a third party API is making? Use HTTP Spy to see what is going on behind the scenes."
   s.author            = "Martin Sadler"
@@ -31,7 +31,7 @@ spec = Gem::Specification.new do |s|
   s.rdoc_options      = %w(--main readme.markdown)
 
   # Add any extra files to include in the gem
-  s.files             = %w(readme.markdown spy.rb) + Dir.glob("{spec,lib,examples}/**/*")
+  s.files             = %w(readme.markdown) + Dir.glob("{spec,lib,examples}/**/*")
    
   s.require_paths     = ["lib"]
   
@@ -44,7 +44,7 @@ spec = Gem::Specification.new do |s|
 
   # If you want to publish automatically to rubyforge, you'll may need
   # to tweak this, and the publishing task below too.
-  s.rubyforge_project = "nethttp-spy"
+  s.rubyforge_project = "net-http-spy"
 end
 
 # This task actually builds the gem. We also regenerate a static 
@@ -103,7 +103,7 @@ begin
         )
  
         host = "#{config['username']}@rubyforge.org"
-        remote_dir = "/var/www/gforge-projects/nethttp-spy/" # Should be the same as the rubyforge project name
+        remote_dir = "/var/www/gforge-projects/net-http-spy/" # Should be the same as the rubyforge project name
         local_dir = 'rdoc'
  
         Rake::SshDirPublisher.new(host, remote_dir, local_dir).upload
