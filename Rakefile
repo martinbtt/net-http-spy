@@ -20,7 +20,7 @@ spec = Gem::Specification.new do |s|
   
   # Change these as appropriate
   s.name              = "net-http-spy"
-  s.version           = "0.1.0"
+  s.version           = "0.1.1"
   s.summary           = "Ever wondered what HTTP requests the Ruby gem you are using to connect to a third party API is making? Use HTTP Spy to see what is going on behind the scenes."
   s.author            = "Martin Sadler"
   s.email             = "martin@beyondthetype.com"
