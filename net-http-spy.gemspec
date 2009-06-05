@@ -8,11 +8,11 @@ Gem::Specification.new do |s|
   s.authors = ["Martin Sadler"]
   s.date = %q{2009-05-07}
   s.email = %q{martin@beyondthetype.com}
+  s.homepage = %q{http://github.com/martinbtt/net-http-spy}
   s.extra_rdoc_files = ["readme.markdown"]
   s.files =  %w(readme.markdown) + Dir.glob("{spec,lib,examples}/**/*")
   s.rdoc_options = ["--main", "readme.markdown"]
-  s.require_paths = ["lib"]
-  s.rubyforge_project = %q{net-http-spy}
+  s.require_paths << ["lib"]
   s.rubygems_version = %q{1.3.3}
   s.summary = %q{Ever wondered what HTTP requests the Ruby gem you are using to connect to a third party API is making? Use HTTP Spy to see what is going on behind the scenes.}
 
