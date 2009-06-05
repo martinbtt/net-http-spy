@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.email = %q{martin@beyondthetype.com}
   s.homepage = %q{http://github.com/martinbtt/net-http-spy}
   s.extra_rdoc_files = ["readme.markdown"]
-  s.files =  %w(readme.markdown) + Dir.glob("{spec,lib,examples}/**/*")
+  s.files = Dir['lib/**/*.rb'] + Dir['[A-Z]*']  + Dir['spec/*'] + Dir['examples/*.rb']  + ["readme.markdown"]
   s.rdoc_options = ["--main", "readme.markdown"]
-  s.require_paths << ["lib"]
+  s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.3}
   s.summary = %q{Ever wondered what HTTP requests the Ruby gem you are using to connect to a third party API is making? Use HTTP Spy to see what is going on behind the scenes.}
 
