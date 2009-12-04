@@ -26,51 +26,50 @@ describe "Net:HTTP Spying on" do
     it "should give the BODY response code" do
       Net::HTTP.http_logger.lines.should include("BODY: Net::HTTPOK")
     end
-  
-  
-  
   end
 
 
   describe "a get request with body option set to true" do
-
     before(:each) do
       Net::HTTP.http_logger.reset!
       Net::HTTP.http_logger_options = {:body => true}
     end
 
-
     it "should give the body output" do
        Twitter::Search.new('httparty').each { |r| r }
        Net::HTTP.http_logger.lines.grep(/BODY: \{\"results\":/).should_not be_empty
     end
-
   end
     
 
   describe "a get request with trace option set to true" do
-
     before(:each) do
       Net::HTTP.http_logger.reset!
       Net::HTTP.http_logger_options = {:trace => true}
     end
 
-
     it "should give the trace output" do
        Twitter::Search.new('httparty').each { |r| r }
        Net::HTTP.http_logger.lines.grep(/TRACE: /).should_not be_empty
     end
-
   end
       
   describe "a post request with default options" do
-  
     before(:all) do
+      # don't make the request!
+      # TODO reset with after(:all)
+      module Net
+        class HTTP
+          def old_request(*args); end
+          def started?; false end
+        end
+      end
+      Net::HTTP.http_logger_options = {:verbose => false}
+
       Net::HTTP.http_logger.reset!
       @connection = Net::HTTP.new('http://search.twitter.com')
       @connection.post('/','?q=hello')
     end
-  
   
     it "should give the post uri" do
       Net::HTTP.http_logger.lines.should include("POST /")
@@ -80,14 +79,8 @@ describe "Net:HTTP Spying on" do
       Net::HTTP.http_logger.lines.should include("PARAMS {\"?q\"=>[\"hello\"]} ")
     end
   
-    it "should give the BODY response code" do
-      Net::HTTP.http_logger.lines.should include("BODY: Net::HTTPFound")
-    end
-  
-  
+    #it "should give the BODY response code" do
+      #Net::HTTP.http_logger.lines.should include("BODY: Net::HTTPFound")
+    #end
   end
-
-
-
-
 end

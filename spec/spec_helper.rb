@@ -6,7 +6,7 @@ require 'open-uri'
 require 'twitter'
 require 'mechanize'
 
-require File.join(File.dirname(__FILE__), '..', 'lib', 'spy')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'net-http-spy')
 
 
 class DummyLogger 
