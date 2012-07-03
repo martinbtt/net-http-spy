@@ -30,7 +30,7 @@ module Net
 
     def request(*args, &block)
       unless started? || @logger_options[:verbose]
-        req = args[0].class::METHOD
+        req = args[0].method
         self.class.http_logger.info "#{req} #{args[0].path}"
       end
 
