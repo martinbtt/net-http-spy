@@ -20,7 +20,7 @@ module Net
       @logger_options = defaults.merge(self.class.http_logger_options)
       @params_limit = @logger_options[:params_limit] || @logger_options[:limit]
       @body_limit   = @logger_options[:body_limit]   || @logger_options[:limit]
-      
+
       self.class.http_logger.info "CONNECT: #{args.inspect}" if !@logger_options[:verbose]
 
       old_initialize(*args, &block)
@@ -30,7 +30,7 @@ module Net
 
     def request(*args, &block)
       unless started? || @logger_options[:verbose]
-        req = args[0].class::METHOD
+        req = args[0].try(:method) || args[0].class::METHOD
         self.class.http_logger.info "#{req} #{args[0].path}"
       end
 
